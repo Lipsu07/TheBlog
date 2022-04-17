@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% load static %}
+  {% block content %}
+
+ 
+    <div class="container py-5">
+      <div class="row pt-5">
+          <div class="col-lg-8">
+              <div class="d-flex flex-column text-left mb-4">
+                  <h4 class="text-secondary mb-3">Blog Detail</h4>
+                  <h1 class="mb-3">{{blog.title}}</h1>
+                  <div class="d-index-flex mb-2">
+                    <small class="mr-3"><i class="fa fa-user text-muted"></i>{{blog.author.username}}</small>
+                    <small class="mr-3"><i class="fa fa-folder text-muted"></i>{{blog.updated_at}}</small>
+                    <img class="img-fluid w-100 mb-4" src="{{blog.image.url}}" alt="Image"> 
+                    <h6 class="text-dark pb-2 px-3">{{blog.decs}}</h6>
+                  </div>
+              </div>
+
+
+              <div style="padding: 30px; background: #f6f6f6;">
+                  <h3 class="mb-4">Leave a comment</h3>
+                  <form>
+                      <div class="form-group">
+                          <label for="name">Name *</label>
+                          <input type="text" class="form-control" id="name">
+                      </div>
+                      <div class="form-group">
+                          <label for="email">Email *</label>
+                          <input type="email" class="form-control" id="email">
+                      </div>
+                   
+
+                      <div class="form-group">
+                          <label for="message">Message *</label>
+                          <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                      </div>
+                      <div class="form-group mb-0">
+                          <input type="submit" value="Leave Comment" class="btn btn-primary px-3">
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+          <div class="col-lg-4 mt-5 mt-lg-0">
+              <div class="mb-5">
+                  <form action="">
+                      <div class="input-group">
+                          <input type="text" class="form-control form-control-lg" placeholder="Keyword">
+                          <div class="input-group-append">
+                              <span class="input-group-text bg-transparent text-primary"><i
+                                      class="fa fa-search"></i></span>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              <div class="mb-5">
+                 
+              <div class="mb-5">
+                  <h3 class="mb-4">Recent Post</h3>
+                  <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                    
+                      <img class="img-fluid" src="{{i.image.url}}" style="width: 80px; height: 80px;" alt="">
+                      <div class="d-flex flex-column pl-3">
+                        <h3 class="card-title text-truncate">{{i.title}}</h3>
+                          <div class="d-flex">
+                            <small class="mr-3"><i class="fa fa-user text-muted"></i>{{blog.author.username}}</small>
+                            <small class="mr-3"><i class="fa fa-folder text-muted"></i>{{blog.updated_at}}</small>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
+              
+          </div>
+      </div>
+  </div>
+  
+        
+  
+
+
+
+  {% endblock content %}

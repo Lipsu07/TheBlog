@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+ <!--  Blog Start -->
+    <div class="container pt-5">
+        <div class="d-flex flex-column text-center mb-5 pt-5">
+            <h4 class="text-secondary mb-3">Metazoa Blog</h4>
+            <h1 class="display-4 m-0"><span class="text-primary">Updates</span> From Blog</h1>
+        </div>
+        <div class="row pb-3">
+        {% for i in blogs %}
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 mb-2">
+                    <img src="{{i.image.url}}" class="" style="height: 237px;width: 100%;" alt="">
+                    <div class="card-body bg-light p-4">
+                        <h3 class="card-title text-truncate">{{i.title}}</h3>
+                        <div class="d-flex mb-3">
+                            <p>&#128338; {{i.updated_at}}</p>
+                            <p>&#9823; {{i.author.username}}</p>
+                        </div>
+                        <h6 class="text-dark pb-2 px-3">{{i.decs|truncatechars:200}}</h6>
+                        <a href="{% url 'blog' id=i.id %}" class="font-weight-bold">Read More</a>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+ 
+
+    {% endblock content %}
+
+
+    
